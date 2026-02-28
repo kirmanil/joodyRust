@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>JoodyRust | Информационный сайт</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <style>
+
+        :root {
+
+            --joody-orange: #ff6a00;
+
+            --rust-white: #ffffff;
+
+            --bg-overlay: rgba(10, 10, 10, 0.8);
+
+            --glass-bg: rgba(255, 255, 255, 0.03);
+
+            --glass-border: rgba(255, 255, 255, 0.08);
+
+        }
+
+
+
+        * {
+
+            margin: 0;
+
+            padding: 0;
+
+            box-sizing: border-box;
+
+        }
+
+
+
+        body {
+
+            font-family: 'Montserrat', sans-serif;
+
+            color: var(--rust-white);
+
+            background: linear-gradient(var(--bg-overlay), var(--bg-overlay)),
+
+                        url('images/fon.jpg') center/cover no-repeat fixed;
+
+            line-height: 1.6;
+
+            overflow-x: hidden;
+
+            scroll-behavior: smooth;
+
+        }
+
+
+
+        /* --- Типографика названия --- */
+
+        .brand-joody { color: var(--joody-orange); }
+
+        .brand-rust { color: var(--rust-white); }
+
+
+
+        /* --- Hero Section --- */
+
+        .hero {
+
+            height: 100vh;
+
+            display: flex;
+
+            align-items: center;
+
+            padding: 0 10%;
+
+            position: relative;
+
+        }
+
+
+
+        .hero-content {
+
+            z-index: 10;
+
+            max-width: 800px;
+
+        }
+
+
+
+        .hero h1 {
+
+            font-size: clamp(4rem, 12vw, 7.5rem);
+
+            font-weight: 900;
+
+            text-transform: uppercase;
+
+            line-height: 0.9;
+
+            margin-bottom: 25px;
+
+            letter-spacing: -2px;
+
+        }
+
+
+
+        .hero p {
+
+            font-size: 1.3rem;
+
+            margin-bottom: 40px;
+
+            max-width: 600px;
+
+            color: rgba(255, 255, 255, 0.8);
+
+            font-weight: 300;
+
+        }
+
+
+
+        /* Моделька персонажа */
+
+        .char-image {
+
+            position: absolute;
+
+            bottom: 0;
+
+            right: 5%;
+
+            height: 85%;
+
+            z-index: 5;
+
+            filter: drop-shadow(0 0 50px rgba(0,0,0,0.6));
+
+            pointer-events: none;
+
+            transition: transform 0.2s ease-out;
+
+        }
+
+
+
+        /* --- Кнопка --- */
+
+        .btn-main {
+
+            display: inline-block;
+
+            padding: 22px 55px;
+
+            background: var(--joody-orange);
+
+            color: #fff;
+
+            text-decoration: none;
+
+            font-weight: 700;
+
+            text-transform: uppercase;
+
+            border-radius: 12px;
+
+            transition: all 0.3s ease;
+
+            box-shadow: 0 8px 25px rgba(255, 106, 0, 0.4);
+
+        }
+
+
+
+        .btn-main:hover {
+
+            transform: translateY(-5px) scale(1.02);
+
+            box-shadow: 0 12px 35px rgba(255, 106, 0, 0.6);
+
+            background: #ff7b1a;
+
+        }
+
+
+
+        /* --- Секции --- */
+
+        section { padding: 100px 10%; }
+
+
+
+        .glass-panel {
+
+            background: var(--glass-bg);
+
+            backdrop-filter: blur(20px);
+
+            -webkit-backdrop-filter: blur(20px);
+
+            border: 1px solid var(--glass-border);
+
+            border-radius: 30px;
+
+            padding: 60px;
+
+        }
+
+
+
+        .section-header {
+
+            text-align: center;
+
+            font-size: 3rem;
+
+            font-weight: 900;
+
+            margin-bottom: 60px;
+
+            text-transform: uppercase;
+
+        }
+
+
+
+        /* --- Преимущества --- */
+
+        .features-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+            gap: 30px;
+
+        }
+
+
+
+        .feature-card {
+
+            background: rgba(255,255,255,0.02);
+
+            border: 1px solid var(--glass-border);
+
+            padding: 40px;
+
+            border-radius: 20px;
+
+            text-align: center;
+
+            transition: 0.3s;
+
+        }
+
+
+
+        .feature-card:hover {
+
+            background: rgba(255, 255, 255, 0.05);
+
+            border-color: var(--joody-orange);
+
+            transform: translateY(-10px);
+
+        }
+
+
+
+        .feature-card h3 {
+
+            color: var(--joody-orange);
+
+            margin-bottom: 15px;
+
+            font-size: 1.5rem;
+
+            text-transform: uppercase;
+
+        }
+
+
+
+        /* --- Discord --- */
+
+        .discord-section {
+
+            background: linear-gradient(135deg, rgba(88, 101, 242, 0.15), rgba(255, 106, 0, 0.1));
+
+            border-radius: 40px;
+
+            text-align: center;
+
+            padding: 80px 40px;
+
+            border: 1px solid var(--glass-border);
+
+        }
+
+
+
+        /* --- Footer --- */
+
+        footer {
+
+            padding: 50px;
+
+            text-align: center;
+
+            background: rgba(0,0,0,0.5);
+
+            font-size: 0.9rem;
+
+            opacity: 0.6;
+
+        }
+
+
+
+        /* Мобильная адаптация */
+
+        @media (max-width: 1024px) {
+
+            .char-image { display: none; }
+
+            .hero { text-align: center; justify-content: center; padding: 0 5%; }
+
+            .section-header { font-size: 2.2rem; }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+
+    <header class="hero">
+
+        <div class="hero-content">
+
+            <h1><span class="brand-joody">JOODY</span><br><span class="brand-rust">RUST</span></h1>
+
+            <p>Новый этап в истории выживания. Сервер, который строишь ты вместе с тысячами других игроков. Каждое решение принимается голосом сообщества.</p>
+
+            <a href="https://discord.gg/mBfWBbnw" target="_blank" class="btn-main">Вступить в Discord</a>
+
+        </div>
+
+       
+
+        <img src="https://i.yapx.ru/dDz94.png" alt="Character" class="char-image" id="character">
+
+    </header>
+
+
+
+    <section>
+
+        <div class="glass-panel">
+
+            <h2 class="section-header">О проекте <span class="brand-joody">JOODY</span><span class="brand-rust">RUST</span></h2>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; align-items: center;">
+
+                <p style="font-size: 1.2rem; opacity: 0.9;">
+
+                    Мы устали от серверов, где администрация диктует свои правила, не слушая игроков.
+
+                    На <strong>JoodyRust</strong> всё иначе. Наш Discord — это центр управления полетами.
+
+                    Хотите изменить карту? Голосуйте. Хотите новые рейты? Предлагайте.
+
+                    Это ваш сервер.
+
+                </p>
+
+                <img src="https://avatars.mds.yandex.net/i?id=0627b8748d12705960c2a0b59e534fad_l-4418494-images-thumbs&n=13" style="width: 100%; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <section>
+
+        <h2 class="section-header">Почему именно мы?</h2>
+
+        <div class="features-grid">
+
+            <div class="feature-card">
+
+                <h3>Демократия</h3>
+
+                <p>Все важные обновления проходят через публичные голосования в Discord.</p>
+
+            </div>
+
+            <div class="feature-card">
+
+                <h3>Честная игра</h3>
+
+                <p>Никакого Pay-to-Win. Только скилл, тактика и ваше умение выживать.</p>
+
+            </div>
+
+            <div class="feature-card">
+
+                <h3>Оптимизация</h3>
+
+                <p>Лучшее железо для минимального пинга и высокого FPS даже в больших замесах.</p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <section>
+
+        <div class="discord-section">
+
+            <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Готов влиять на игру?</h2>
+
+            <p style="margin-bottom: 40px; opacity: 0.8; max-width: 600px; margin-left: auto; margin-right: auto;">
+
+                Присоединяйся к нашему каналу, выбери свою роль и начни предлагать идеи уже сегодня. Твой первый вайп на JoodyRust начнется здесь.
+
+            </p>
+
+            <a href="https://discord.gg/mBfWBbnw" target="_blank" class="btn-main" style="background: #5865f2; box-shadow: 0 8px 25px rgba(88, 101, 242, 0.3);">Открыть Discord</a>
+
+        </div>
+
+    </section>
+
+
+
+    <footer>
+
+        <p><span class="brand-joody" style="font-weight: 900;">JOODY</span><span class="brand-rust" style="font-weight: 900;">RUST</span> &copy; 2026</p>
+
+        <p style="margin-top: 10px;">Все права защищены сообществом.</p>
+
+    </footer>
+
+
+
+    <script>
+
+        // Легкий параллакс для персонажа
+
+        document.addEventListener('mousemove', (e) => {
+
+            const char = document.getElementById('character');
+
+            if (window.innerWidth > 1024) {
+
+                const moveX = (e.clientX - window.innerWidth / 2) / 50;
+
+                const moveY = (e.clientY - window.innerHeight / 2) / 50;
+
+                char.style.transform = `translate(${moveX}px, ${moveY}px)`;
+
+            }
+
+        });
+
+    </script>
+
+</body>
+
+</html>
