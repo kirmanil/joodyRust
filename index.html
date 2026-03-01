@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>JoodyRust | Информационный сайт</title>
+    
+    <link rel="icon" type="image/png" href="logo.png">
+    
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -18,7 +21,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent; /* Убирает синий блик при нажатии на мобилках */
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
@@ -26,7 +29,7 @@
             color: var(--rust-white);
             background: linear-gradient(var(--bg-overlay), var(--bg-overlay)),
                         url('images/fon.jpg') center/cover no-repeat fixed;
-            background-color: #0a0a0a; /* Фолбэк цвет */
+            background-color: #0a0a0a;
             line-height: 1.5;
             overflow-x: hidden;
             scroll-behavior: smooth;
@@ -50,7 +53,7 @@
         }
 
         .hero h1 {
-            font-size: clamp(3rem, 10vw, 7.5rem); /* Адаптивный размер */
+            font-size: clamp(3rem, 10vw, 7.5rem);
             font-weight: 900;
             text-transform: uppercase;
             line-height: 1;
@@ -65,6 +68,42 @@
             color: rgba(255, 255, 255, 0.8);
         }
 
+        /* --- Контейнер кнопок --- */
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        /* --- Кнопки --- */
+        .btn-main {
+            display: inline-block;
+            padding: 18px 35px;
+            background: var(--joody-orange);
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(255, 106, 0, 0.3);
+            text-align: center;
+            border: 2px solid transparent;
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid var(--glass-border);
+            box-shadow: none;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--rust-white);
+        }
+
+        .btn-main:active { transform: scale(0.95); }
+
         .char-image {
             position: absolute;
             bottom: 0;
@@ -75,23 +114,6 @@
             pointer-events: none;
             transition: transform 0.1s ease-out;
         }
-
-        /* --- Кнопка --- */
-        .btn-main {
-            display: inline-block;
-            padding: 18px 40px;
-            background: var(--joody-orange);
-            color: #fff;
-            text-decoration: none;
-            font-weight: 700;
-            text-transform: uppercase;
-            border-radius: 12px;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 20px rgba(255, 106, 0, 0.3);
-            text-align: center;
-        }
-
-        .btn-main:active { transform: scale(0.95); }
 
         /* --- Секции --- */
         section { padding: 60px 5%; }
@@ -135,14 +157,6 @@
             text-transform: uppercase;
         }
 
-        .discord-section {
-            background: linear-gradient(135deg, rgba(88, 101, 242, 0.2), rgba(255, 106, 0, 0.1));
-            border-radius: 30px;
-            text-align: center;
-            padding: 60px 20px;
-            border: 1px solid var(--glass-border);
-        }
-
         /* --- Footer --- */
         footer {
             padding: 40px 20px;
@@ -151,7 +165,7 @@
             font-size: 0.85rem;
         }
 
-        /* --- МОБИЛЬНАЯ ОПТИМИЗАЦИЯ (Media Queries) --- */
+        /* --- МОБИЛЬНАЯ ОПТИМИЗАЦИЯ --- */
         @media (max-width: 1024px) {
             .char-image { display: none; }
             .hero { 
@@ -164,6 +178,7 @@
                 flex-direction: column;
                 align-items: center;
             }
+            .btn-group { justify-content: center; }
             .hero h1 { margin-bottom: 15px; }
             .hero p { margin-left: auto; margin-right: auto; }
         }
@@ -172,16 +187,20 @@
             section { padding: 40px 15px; }
             .glass-panel { padding: 30px 20px; }
             
-            /* Исправляем сетку в блоке "О проекте" */
             .about-grid {
                 display: flex !important;
-                flex-direction: column-reverse; /* Картинка сверху или снизу */
+                flex-direction: column-reverse;
                 gap: 25px !important;
             }
             
             .btn-main {
-                width: 100%; /* Кнопка на всю ширину на телефоне */
+                width: 100%;
                 max-width: 320px;
+            }
+            .btn-group {
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
             }
         }
 
@@ -197,7 +216,10 @@
         <div class="hero-content">
             <h1><span class="brand-joody">JOODY</span><br><span class="brand-rust">RUST</span></h1>
             <p>Новый этап в истории выживания. Сервер, который строишь ты вместе с тысячами других игроков.</p>
-            <a href="https://discord.gg/mBfWBbnw" target="_blank" class="btn-main">Вступить в Discord</a>
+            <div class="btn-group">
+                <a href="https://discord.gg/mBfWBbnw" target="_blank" class="btn-main">Вступить в Discord</a>
+                <a href="https://joodyrust.gamestores.app" target="_blank" class="btn-main btn-secondary">Магазин сервера</a>
+            </div>
         </div>
         <img src="https://i.yapx.ru/dDz94.png" alt="Character" class="char-image" id="character">
     </header>
@@ -207,7 +229,7 @@
             <h2 class="section-header">О проекте <span class="brand-joody">JOODY</span><span class="brand-rust">RUST</span></h2>
             <div class="about-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; align-items: center;">
                 <p style="font-size: 1.1rem; opacity: 0.9; text-align: center;">
-                    Мы устали от серверов, где администрация диктует правила. На <strong>JoodyRust</strong> всё иначе. Хотите изменить рейты? <strong>Голосуйте, в нашем дискорд-сообществе!</strong>
+                    Мы устали от серверов, где администрация диктует правила. На <strong>JoodyRust</strong> всё иначе. Хотите изменить рейты? <strong>Голосуйте в нашем дискорд-сообществе!</strong>
                 </p>
                 <img src="https://avatars.mds.yandex.net/i?id=0627b8748d12705960c2a0b59e534fad_l-4418494-images-thumbs&n=13" alt="Rust Gameplay" style="width: 100%; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
             </div>
@@ -232,43 +254,17 @@
         </div>
     </section>
 
-<section>
-        <div class="discord-section" style="
-            background: linear-gradient(135deg, rgba(255, 106, 0, 0.15) 0%, rgba(10, 10, 10, 0.4) 100%);
-            border: 1px solid rgba(255, 106, 0, 0.3);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-        ">
-            <h2 style="
-                font-size: clamp(1.8rem, 6vw, 3rem); 
-                margin-bottom: 20px; 
-                text-transform: uppercase; 
-                font-weight: 900;
-                letter-spacing: 1px;
-            ">
-                Готов <span class="brand-joody">влиять</span> на игру?
-            </h2>
-            <p style="
-                margin-bottom: 35px; 
-                opacity: 0.9; 
-                max-width: 600px; 
-                margin-left: auto; 
-                margin-right: auto;
-                font-size: 1.1rem;
-            ">
-                Твой первый вайп на <span style="font-weight: 700;">JoodyRust</span> начнется здесь. <br>
-                Присоединяйся к сообществу, где голос каждого имеет значение.
+    <section>
+        <div class="glass-panel" style="text-align: center; border-color: rgba(255, 106, 0, 0.2);">
+            <h2 class="section-header" style="margin-bottom: 20px;">Готов <span class="brand-joody">влиять</span> на игру?</h2>
+            <p style="margin-bottom: 35px; opacity: 0.8; max-width: 650px; margin-left: auto; margin-right: auto; font-size: 1.1rem;">
+                Твой первый вайп на <strong>JoodyRust</strong> начнется здесь. Присоединяйся к сообществу, где каждый голос важен.
             </p>
-            <a href="https://discord.gg/mBfWBbnw" target="_blank" class="btn-main" style="
-                background: var(--joody-orange);
-                box-shadow: 0 10px 30px rgba(255, 106, 0, 0.4);
-                padding: 20px 50px;
-            ">
+            <a href="https://discord.gg/mBfWBbnw" target="_blank" class="btn-main">
                 Открыть Discord
             </a>
         </div>
-    </section>>
+    </section>
 
     <footer>
         <p><span class="brand-joody" style="font-weight: 900;">JOODY</span><span class="brand-rust" style="font-weight: 900;">RUST</span> &copy; 2026</p>
@@ -276,7 +272,7 @@
     </footer>
 
     <script>
-        // Отключаем параллакс на мобилках для производительности
+        // Параллакс эффект для персонажа
         if (window.innerWidth > 1024) {
             document.addEventListener('mousemove', (e) => {
                 const char = document.getElementById('character');
@@ -288,8 +284,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
